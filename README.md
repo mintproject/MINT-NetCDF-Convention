@@ -9,12 +9,11 @@ The purpose of this document is to propose a self-describing data format for str
 
 
 ## Brief summary on NetCDF 
-NetCDF (network Common Data Form) is a file format for storing multidimensional scientific data (`variables`) such as pressure, surface temperature, soil moisture content and wind speed. It has been adopted as a standard way to represent scientific data as it facilitates data access. Its main advantages are[^1]:
+NetCDF (network Common Data Form) is a file format for storing multidimensional scientific data (`variables`) such as pressure, surface temperature, soil moisture content and wind speed. It has been adopted as a standard way to represent scientific data as it facilitates data access. Its main advantages are<sup>[1](#myfootnote1)</sup>:
   - self-describing: it includes information about the data it continas so that no external tables are needed to interpret it
   - machine-independent: portable  across different platforms, eg. MacOS, Windows, Linux
   - scalable: a small subset of a large netCDF file can be accessed efficinetly without reading the entire file 
   
-[^1]: A quick tour of netCDF data: [link](https://is.gd/Kwh6R2)
 
 We would like to start a discussion on the common convention for structured gridded data for MINT by proposing the following specifications.  We have consulted the Unidata group's [recommendation](#) on the netCDF attributions for data discovery as well as the [CF Conventions](http://cfconventions.org/) and the [ACDD Conventions](https://is.gd/IKZ3CQ). 
 
@@ -138,4 +137,6 @@ The following is a netCDF file that follows our proposed conventions.
 - EPSG.io
 - Example netCDF file - [link]()
 
+---
+<a name="myfootnote1">1</a>: A quick tour of netCDF data: [link](https://is.gd/Kwh6R2)
 
