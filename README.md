@@ -1,9 +1,8 @@
----
 # MINT Data Format Convention Proposal
-Target: Structured gridded data
-Version: Draft 1
-Author/POC: Hayley Song (haejinso@usc.edu)
-Last Modified:  Jul 9, 2019
+- Target: Structured gridded data
+- Version: Draft 1
+- Author/POC: Hayley Song (haejinso@usc.edu)
+- Last Modified:  Jul 9, 2019
 
 
 The purpose of this document is to propose a self-describing data format for structured gridded datasets for MINT data catalog and visualization based on the netCDF and the CF convention. 
@@ -21,23 +20,17 @@ We would like to start a discussion on the common convention for structured grid
 
 The purpose of this specification is to support efficient visualization and data exchange within the MINT project. We welcome your comments, questions, and any suggestions you might have. Please submit your comments [here](https://docs.google.com/spreadsheets/d/1eT_Z51R4VwVen-qx7XGtNjoHuc2sMlYmmxbi5acumx0/edit?usp=sharing). 
 
----
 # Contents
 NetCDF convention for MINT structured gridded datasets
 
 1. Attribute Convention 
     - Global attributes: per data file 
     - Variable attributes: per variable
-<!--
-2. Metadata Convention 
--->
+
 2. Examples
 
 3. Related materials 
 
-<!--
-8 [todo] conformance test webapp
--->
 
 ---
 # Attribute Convention
@@ -72,13 +65,14 @@ depedning on our specificationn requirement
 | institution |R| institution in charge of the dataset | | 
 | project | R | the scientific project that produced the data | |
 
-If the dataset has a time component, the following extra specifications are recommended:
+If the dataset has a time component, the following extra specifications on temporal coverage of the data are recommended: 
+
 | Attribute | Requirement | Description | Example | 
 |:----------|:------------:|:------------|:--------|
-|time_coverage_start|C||
-|time_coverage_end|C||
-|time_coverage_duration|R||
-|time_coverage_resolution|C||
+|time_coverage_start|C| earliest time in the dataset | |
+|time_coverage_end|C| latest time in the dataset | |
+|time_coverage_duration|R| temporal range of the dataset| |
+|time_coverage_resolution|C| temporal interval between data points| |
 
 
 If the dataset has a geospatial coordinate variable, the following extra specifications are required/recommended:
@@ -89,8 +83,8 @@ If the dataset has a geospatial coordinate variable, the following extra specifi
 | geospatial_bounds | C | | |
 |geospatial_lat_min   | O | a short description of the dataset||
 |geospatial_lat_max | O | a paragraph describing the dataset||
-|geospatial_lon_min | O | dataset id |
-|geospatial_lon_min | O | dataset id |
+|geospatial_lon_min | O | dataset id ||
+|geospatial_lon_min | O | dataset id ||
 
 
 
