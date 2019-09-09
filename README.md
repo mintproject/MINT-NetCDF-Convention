@@ -86,7 +86,7 @@ If the dataset has a geospatial coordinate variable, the following extra specifi
 | geospatial_lat_max | C | a paragraph describing the dataset||
 | geospatial_lon_min | C | dataset id ||
 | geospatial_lon_min | C | dataset id ||
-| geospatial_bounds | R | (lon_min, lat_min, lon_max, lat_max||
+| geospatial_bounds | R | lon_min, lat_min, lon_max, lat_max||
 
 
 
