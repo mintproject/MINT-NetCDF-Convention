@@ -63,6 +63,9 @@ depedning on our specificationn requirement
 | creator_email |M| the email address of the data creator | |
 | institution |R| institution in charge of the dataset | | 
 | project | R | the scientific project that produced the data | |
+| history | R | a static value, "created by MINT workflow" | |
+| convention | R | MINT-{versionNumber} | |
+
 
 If the dataset has a time component, the following extra specifications on temporal coverage of the data are recommended: 
 
