@@ -2,7 +2,7 @@
 - Target: Structured gridded data
 - Version: Draft 1
 - Author/POC: Hayley Song (haejinso@usc.edu)
-- Last Modified:  Jul 18, 2019
+- Last Modified:  Sep 9, 2019
 
 
 The purpose of this document is to propose a self-describing data format for structured gridded datasets for MINT data catalog and visualization based on the netCDF and the CF convention. 
