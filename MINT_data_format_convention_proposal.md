@@ -24,6 +24,7 @@ The purpose of this specification is to support efficient visualization and data
 ---
 # Contents
 NetCDF convention for MINT structured gridded datasets
+0. Required dimensions
 
 1. Attribute Convention 
     - Global attributes: per data file 
@@ -40,6 +41,15 @@ NetCDF convention for MINT structured gridded datasets
 -->
 
 ---
+# Dimensions Convention
+MINT NetCDF Visualization requires the input NetCDF file to have the following three dimensions specified.
+Any violation to the naming convention will cause an error in visualization.
+  - Longigude 
+  	- option
+  - Latitude
+  - Time 
+  
+
 # Attribute Convention
 Note that the attribute names link to the Unidata definitions, and each element is marked with `M`,`R`,`O`, or `C` 
 depedning on our specificationn requirement
@@ -143,5 +153,15 @@ The following is a netCDF file that follows our proposed conventions.
 - CRS (for CRS's epsg code)
 - EPSG.io
 - Example netCDF file - [link]()
+
+# Related tutorials
+1. https://github.com/mintproject/MINT-GeoViz/blob/master/examples/notebooks/01_xarray_intro.ipynb
+	- How to use `xarray` (Python library) 
+		- Read netcdf files as a Dataset and manipulate data
+		- Create a Dataset representing a NetCDF  
+			- Define labelled dimensions (optionally with coordinate data)
+		- Write to a file
+
+
 
 
