@@ -1,4 +1,4 @@
-# MINT Data Format Convention Proposal
+# MINT NetCDF Convention Proposal
 - Target: Structured gridded data
 - Version: Draft 1
 - Author/POC: Hayley Song (haejinso@usc.edu)
