@@ -1,4 +1,3 @@
----
 # MINT Data Format Convention Proposal
 Target: Structured gridded data
 Version: Draft 1
@@ -21,8 +20,8 @@ We would like to start a discussion on the common convention for structured grid
 
 The purpose of this specification is to support efficient visualization and data exchange within the MINT project. We welcome your comments, questions, and any suggestions you might have. Please submit your comments [here](https://docs.google.com/spreadsheets/d/1eT_Z51R4VwVen-qx7XGtNjoHuc2sMlYmmxbi5acumx0/edit?usp=sharing). 
 
----
-# Contents
+
+## Contents
 NetCDF convention for MINT structured gridded datasets
 0. Required dimensions
 
@@ -41,7 +40,7 @@ NetCDF convention for MINT structured gridded datasets
 -->
 
 ---
-# Dimensions Convention
+## Dimensions Convention
 MINT NetCDF Visualization requires the input NetCDF file to have the following three dimensions specified.
 Any violation to the naming convention will cause an error in visualization.
 | Name | Description | Required fields |
@@ -57,9 +56,7 @@ Any violation to the naming convention will cause an error in visualization.
   - timeTime 
  Each dimension is strongely encouraged to contain coordinates. For example:
  
-
-
-# Attribute Convention
+## Attribute Convention
 Note that the attribute names link to the Unidata definitions, and each element is marked with `M`,`R`,`O`, or `C` 
 depedning on our specificationn requirement
   - `M`: Mandatory    
@@ -132,7 +129,7 @@ If the dataset has a geospatial coordinate variable, the following extra specifi
 <!--
 
 ---
-# Metadata Convention
+## Metadata Convention
 
 | Attribute | Requirement | Description | Example | 
 |:----------|:------------:|:------------|:--------|
@@ -147,12 +144,12 @@ The following is a netCDF file that follows our proposed conventions.
 -->
 
 <!--
-  # Visualization example 
+  ## Visualization example 
   [todo]
 -->
 
 ---
-# Related materials
+## Related materials
 - Unidata's CF Convention: [Official doc](http://cfconventions.org/latest.html), [Overview slides](https://is.gd/a2qEWQ)
 - CF Metadata conventions [Official doc](https://is.gd/fhqNwq)
 - List of netCDF Conventions - [link](https://www.unidata.ucar.edu/software/netcdf/conventions.html)
@@ -163,7 +160,7 @@ The following is a netCDF file that follows our proposed conventions.
 - EPSG.io
 - Example netCDF file - [link]()
 
-# Related tutorials
+## Related tutorials
 1. https://github.com/mintproject/MINT-GeoViz/blob/master/examples/notebooks/01_xarray_intro.ipynb
 	- How to use `xarray` (Python library) 
 		- Read netcdf files as a Dataset and manipulate data
