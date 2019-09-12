@@ -48,7 +48,7 @@ Any violation to the naming convention will cause an error in visualization.
 | --- | --- | --- |
 | X | Longitude | unit (eg: km)* |
 | Y | Latitude | unit (eg: km)* |
-| time | Time | unit (eg: ISO standard)* |
+| time | Time | unit (as a valid udunit)* |
 | bnds | Number of bands, ie. dimensionality of a value in each grid cell. (eg: 1 for a scalar, 3 for RGB, 4 for RGBA) | 
  
  units*:  units of the data contained by the variable; must be a valid [udunits](https://is.gd/UVgrOm) string. 
