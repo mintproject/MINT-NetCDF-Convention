@@ -64,6 +64,7 @@ ISO-compliant: as a string using ISO 8601 encoding, such as "2010-10-25T12:00:00
  Each dimension is strongely encouraged to contain coordinates. For example:
 
 ### Example of dimensions following MINT convention
+
  ```
  Dimensions:                 (X: 294, Y: 348, bnds: 2, time: 1)
 Coordinates:
@@ -103,6 +104,7 @@ Data variables:
 ## Attribute Convention
 Note that the attribute names link to the Unidata definitions, and each element is marked with `M`,`R`,`O`, or `C` 
 depedning on our specificationn requirement
+
   - `M`: Mandatory    
   - `R`: Recommended
   - `O`: Optional
