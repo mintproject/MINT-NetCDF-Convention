@@ -124,6 +124,7 @@ depedning on our specificationn requirement
 | project | R | the scientific project that produced the data | |
 
 If the dataset has a time component, the following extra specifications are recommended:
+
 | Attribute | Requirement | Description | Example | 
 |:----------|:------------:|:------------|:--------|
 |time_coverage_start|C||
@@ -142,8 +143,6 @@ If the dataset has a geospatial coordinate variable, the following extra specifi
 |geospatial_lat_max | O | a paragraph describing the dataset||
 |geospatial_lon_min | O | dataset id |
 |geospatial_lon_min | O | dataset id |
-
-
 
 
 2. Variable attributes
