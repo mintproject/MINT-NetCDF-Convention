@@ -44,11 +44,20 @@ NetCDF convention for MINT structured gridded datasets
 # Dimensions Convention
 MINT NetCDF Visualization requires the input NetCDF file to have the following three dimensions specified.
 Any violation to the naming convention will cause an error in visualization.
-  - Longigude 
-  	- option
-  - Latitude
-  - Time 
-  
+| Name | Description | Required fields |
+| --- | --- | --- |
+| X | Longitude | unit (eg: km)* |
+| Y | Latitude | unit (eg: km)* |
+| time | Time | unit (eg: ISO standard)* |
+| bnds | Number of bands, ie. dimensionality of a value in each grid cell. (eg: 1 for a scalar, 3 for RGB, 4 for RGBA) | 
+ units*:  units of the data contained by the variable; must be a valid [udunits](https://is.gd/UVgrOm) string| “m” (meter), “km” (kilometer), “degrees_north” (for latitude), “degrees_east” (for longitude),
+
+  - XLongigude 
+  - YLatitude
+  - timeTime 
+ Each dimension is strongely encouraged to contain coordinates. For example:
+ 
+
 
 # Attribute Convention
 Note that the attribute names link to the Unidata definitions, and each element is marked with `M`,`R`,`O`, or `C` 
@@ -68,8 +77,8 @@ depedning on our specificationn requirement
  
 | Attribute | Requirement | Description | Example | 
 |:----------|:------------:|:------------|:--------|
-|title    | M | a short description of the dataset||
-|summary | R | a paragraph describing the dataset||
+| title    | M | a short description of the dataset||
+| summary | R | a paragraph describing the dataset||
 | naming_authority | M | the organization that provides the dataset id (below). We recommend using URIs or reverse-DNS naming | edu.isi.workflow
 |id | M | dataset id. It can be URL, DOI. meaningful text strings, or any unique string of charaters without white space charaters. The combination of the `naming_authority` and `id` should be globally unique | `/MINT/FLDAS/FLDAS_NOAH01_A_EA_D.20190401.001.nc`
 |keywords| R| a comma separated list of keywords and phrasts||
