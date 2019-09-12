@@ -54,7 +54,16 @@ Any violation to the naming convention will cause an error in visualization.
  units*:  units of the data contained by the variable; must be a valid [udunits](https://is.gd/UVgrOm) string. 
  For example, “m” (meter), “km” (kilometer), “degrees_north” (for latitude), “degrees_east” (for longitude),
 
+### Units
+1. Time
+Two conventions for storing a date/time into a netCDF variable are:
+
+CF-compliant: as a numeric value with a udunits time unit, such as
+    "seconds since 1992-10-8 15:00:00"
+ISO-compliant: as a string using ISO 8601 encoding, such as "2010-10-25T12:00:00Z".
  Each dimension is strongely encouraged to contain coordinates. For example:
+
+### Example of dimensions following MINT convention
  ```
  Dimensions:                 (X: 294, Y: 348, bnds: 2, time: 1)
 Coordinates:
