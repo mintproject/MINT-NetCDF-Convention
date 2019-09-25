@@ -2,10 +2,10 @@
 - Target: Structured gridded data
 - Version: Draft 3
 - Author/POC: Hayley Song (haejinso@usc.edu)
-- Last Modified: Sep 24, 2019
+- Last Modified: Sep 25, 2019
 
 
-The purpose of this document is to propose a self-describing data format for structured gridded datasets for MINT data catalog and visualization based on the netCDF and the CF convention. 
+The purpose of this document is to propose a self-describing data format for structured gridded datasets for MINT data catalog and visualization based on the NetCDF and the CF convention. 
 
 
 ## Brief summary on NetCDF 
@@ -15,18 +15,30 @@ NetCDF (network Common Data Form) is a file format for storing multidimensional 
   - scalable: a small subset of a large netCDF file can be accessed efficinetly without reading the entire file 
   
 
-We would like to start a discussion on the common convention for structured gridded data for MINT by proposing the following specifications.  We have consulted the Unidata group's [recommendation](#) on the netCDF attributions for data discovery as well as the [CF Conventions](http://cfconventions.org/), the [ACDD Conventions](https://is.gd/IKZ3CQ), and the Open Geospatial Convention (document)[https://tinyurl.com/yyoz4bxb]. 
+We would like to start a discussion on the common convention for structured gridded data for MINT by proposing the following specifications.  We have consulted the Unidata group's [recommendation](#) on the netCDF attributions for data discovery as well as the [CF Conventions](http://cfconventions.org/), the [Attirubte Convention for Data Discovery (ACDD)](https://is.gd/IKZ3CQ), and the Open Geospatial Convention [document](https://tinyurl.com/yyoz4bxb). 
 
-The purpose of this specification is to support efficient visualization and data exchange within the MINT project. We welcome your comments, questions, and any suggestions you might have. Please submit your comments [here](https://docs.google.com/spreadsheets/d/1eT_Z51R4VwVen-qx7XGtNjoHuc2sMlYmmxbi5acumx0/edit?usp=sharing). 
+The purpose of this specification is to establish a unified NetCDF format within MINT (and in the near future, among World Moderlers) for an efficient data exchange and knowledge discovery. In addition, we have created an interactive tool for explororing datasets conforming to this specification (See Figure 1 for a quick demo).  We welcome your comments, questions, and any suggestions you might have. Please submit your comments [here](https://docs.google.com/spreadsheets/d/1eT_Z51R4VwVen-qx7XGtNjoHuc2sMlYmmxbi5acumx0/edit?usp=sharing). 
+
+
+## Demo: Interactive visualization tool 
+<!--todo: set width -->
+| | |
+| --- | --- |
+|![fldas-demo-1](./assets/fldas-demo-opt-1-1.gif)| ![fldas-demo-1](./assets/fldas-demo-opt-1-2.gif)|
+|![fldas-demo-2](./assets/fldas-demo-opt-1-3.gif)| ![fldas-demo-3](./assets/fldas-demo-opt-1-4.gif)|
 
 
 ## Contents
 NetCDF convention for MINT structured gridded datasets
 0. Required dimensions
+    - X, Y, time bnds
+    - units
+    
 
 1. Attribute Convention 
     - Global attributes: per data file 
     - Variable attributes: per variable
+    
 <!--
 2. Metadata Convention 
 -->
@@ -41,7 +53,7 @@ NetCDF convention for MINT structured gridded datasets
 ---
 ## Dimensions Convention
 MINT NetCDF Visualization requires the input NetCDF file to have the following three dimensions specified.
-Any violation to the naming convention will cause an error in visualization.
+Any violation to the naming convention will likely cause an error in visualization.
 
 | Name | Description | Required fields |
 | --- | --- | --- |
@@ -114,9 +126,6 @@ depedning on our specificationn requirement
 
 
 1. Global attributes
-	 - Where time is specified as an attirubte, the [IOS 8601]([https://en.wikipedia.org/wiki/ISO_8601](https://en.wikipedia.org/wiki/ISO_8601)) standard should be used
-	 
- <!--[todo-add datatype column]-->
  
 | Attribute | Requirement | Description | Example | 
 |:----------|:------------:|:------------|:--------|
@@ -136,28 +145,39 @@ depedning on our specificationn requirement
 | history | R | a static value, "created by MINT workflow" | |
 | convention | R | MINT-{versionNumber} | |
 
+### Time coordinate variable
+Values shall be formatted as specified by [ISO 8601:2004](https://en.wikipedia.org/wiki/ISO_8601).
 
-If the dataset has the time coordinates variable, the following extra specifications are required:
-The value of the following attributes of the time coordinate variable must satisfi
 | Attribute | Requirement | Description | Example | 
 |:----------|:------------:|:------------|:--------|
 |time_coverage_start|C||
 |time_coverage_end|C||
 |time_coverage_duration|R||
 |time_coverage_resolution|C||
-|time_units|C| “units since YYYY-MM-DD hh:mm:ss” string valuem| 
+|time_units|C| a string | “units since YYYY-MM-DD hh:mm:ss”| 
 
+### Geospatial coordinate variable
 
-If the dataset has a geospatial coordinate variable, the following extra specifications are required/recommended:
-- A cooridinate variable's data type must be a numerical type (usually floating point)
+1. Coordinate Reference System Format  
+There are numerous formats that are used to document a CRS. Three common formats are `proj.4`, `EPSg`, and `Well-known Text (WKT)` formats.  Refer to this [tutorial](https://tinyurl.com/yyy3am7p) for details on conversions among these formats. Following the OGC, we require the geospatial bounds be specified as EPSG code which is a 4-5 digit number that represents particular CRS definition. 
+   - [List of EPSG codes](https://spatialreference.org/ref/epsg/)
+   - [epsg.io](https://epsg.io/): useful service to search EPSG codes  
+   - eg: "EPSG:4326", "urn:ogc:def:crs:EPSG::4326"
+    
+    
+2. Other attributes (eg. `geospatial_lat_min`)
+
+    - Values type (except for the `geospatial_bounds_crs`) should be floating point
+    - Units of measurement should be degrees with positive latitudes in the North hemisphere and longitude values increasing toward east
+    - The minimum lat/lon must be smaller or equal to the maximum lat/lon
 
 | Attribute | Requirement | Description | Example | 
 |:----------|:------------:|:------------|:--------|
-| geospatial_bounds_crs | C | | |
-|geospatial_lat_min   | O | a short description of the dataset||
-|geospatial_lat_max | O | a paragraph describing the dataset||
-|geospatial_lon_min | O | dataset id |
-|geospatial_lon_min | O | dataset id |
+| geospatial_bounds_crs | C | EPSG code | "+init=epsg:4326" |
+|geospatial_lat_min   | O | southernmost latitude covered by the dataset| |
+|geospatial_lat_max | O | northernmost latitude ||
+|geospatial_lon_min | O | easternmost longitude ||
+|geospatial_lon_min | O | westernmost longitude ||
 | geospatial_bounds | R | lon_min, lat_min, lon_max, lat_max||
 
 
@@ -220,5 +240,4 @@ The following is a netCDF file that follows our proposed conventions.
 
 ---
 <a name="myfootnote1">1</a>: A quick tour of netCDF data: [link](https://is.gd/Kwh6R2)
-
 
