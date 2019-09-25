@@ -159,7 +159,7 @@ Values shall be formatted as specified by [ISO 8601:2004](https://en.wikipedia.o
 ### Geospatial coordinate variable
 
 1. Coordinate Reference System Format  
-There are numerous formats that are used to document a CRS. Three common formats are `proj.4`, `EPSg`, and `Well-known Text (WKT)` formats.  Refer to this [tutorial](https://tinyurl.com/yyy3am7p) for details on conversions among these formats. Following the OGC, we require the geospatial bounds be specified as EPSG code which is a 4-5 digit number that represents particular CRS definition. 
+There are numerous formats that are used to document a CRS. Three common formats are `proj.4`, `EPSG`, and `Well-known Text (WKT)` formats.  Refer to this [tutorial](https://tinyurl.com/yyy3am7p) for details on conversions among these formats. Following the OGC, we require the geospatial bounds be specified as EPSG code which is a 4-5 digit number that represents particular CRS definition. 
    - [List of EPSG codes](https://spatialreference.org/ref/epsg/)
    - [epsg.io](https://epsg.io/): useful service to search EPSG codes  
    - eg: "EPSG:4326", "urn:ogc:def:crs:EPSG::4326"
