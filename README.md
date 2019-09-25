@@ -163,8 +163,8 @@ There are numerous formats that are used to document a CRS. Three common formats
    - [List of EPSG codes](https://spatialreference.org/ref/epsg/)
    - [epsg.io](https://epsg.io/): useful service to search EPSG codes  
    - eg: "EPSG:4326", "urn:ogc:def:crs:EPSG::4326"
-    
-    
+   - use the string format “+init=epsg:<your_code>” as the value
+   
 2. Other attributes (eg. `geospatial_lat_min`)
 
     - Values type (except for the `geospatial_bounds_crs`) should be floating point
