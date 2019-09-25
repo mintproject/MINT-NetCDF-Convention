@@ -14,7 +14,6 @@ NetCDF (network Common Data Form) is a file format for storing multidimensional 
   - machine-independent: portable  across different platforms, eg. MacOS, Windows, Linux
   - scalable: a small subset of a large netCDF file can be accessed efficinetly without reading the entire file 
   
-[^1]: A quick tour of netCDF data: [link](https://is.gd/Kwh6R2)
 
 We would like to start a discussion on the common convention for structured gridded data for MINT by proposing the following specifications.  We have consulted the Unidata group's [recommendation](#) on the netCDF attributions for data discovery as well as the [CF Conventions](http://cfconventions.org/), the [ACDD Conventions](https://is.gd/IKZ3CQ), and the Open Geospatial Convention (document)[https://tinyurl.com/yyoz4bxb]. 
 
