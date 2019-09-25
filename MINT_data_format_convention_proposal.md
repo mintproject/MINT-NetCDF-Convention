@@ -1,8 +1,8 @@
 # MINT Data Format Convention Proposal
 - Target: Structured gridded data
-- Version: Draft 2
+- Version: Draft 3
 - Author/POC: Hayley Song (haejinso@usc.edu)
-- Last Modified: Sep 12, 2019
+- Last Modified: Sep 24, 2019
 
 
 The purpose of this document is to propose a self-describing data format for structured gridded datasets for MINT data catalog and visualization based on the netCDF and the CF convention. 
@@ -16,7 +16,7 @@ NetCDF (network Common Data Form) is a file format for storing multidimensional 
   
 [^1]: A quick tour of netCDF data: [link](https://is.gd/Kwh6R2)
 
-We would like to start a discussion on the common convention for structured gridded data for MINT by proposing the following specifications.  We have consulted the Unidata group's [recommendation](#) on the netCDF attributions for data discovery as well as the [CF Conventions](http://cfconventions.org/) and the [ACDD Conventions](https://is.gd/IKZ3CQ). 
+We would like to start a discussion on the common convention for structured gridded data for MINT by proposing the following specifications.  We have consulted the Unidata group's [recommendation](#) on the netCDF attributions for data discovery as well as the [CF Conventions](http://cfconventions.org/), the [ACDD Conventions](https://is.gd/IKZ3CQ), and the Open Geospatial Convention (document)[https://tinyurl.com/yyoz4bxb]. 
 
 The purpose of this specification is to support efficient visualization and data exchange within the MINT project. We welcome your comments, questions, and any suggestions you might have. Please submit your comments [here](https://docs.google.com/spreadsheets/d/1eT_Z51R4VwVen-qx7XGtNjoHuc2sMlYmmxbi5acumx0/edit?usp=sharing). 
 
@@ -135,17 +135,19 @@ depedning on our specificationn requirement
 | institution |R| institution in charge of the dataset | | 
 | project | R | the scientific project that produced the data | |
 
-If the dataset has a time component, the following extra specifications are recommended:
-
+If the dataset has the time coordinates variable, the following extra specifications are required:
+The value of the following attributes of the time coordinate variable must satisfi
 | Attribute | Requirement | Description | Example | 
 |:----------|:------------:|:------------|:--------|
 |time_coverage_start|C||
 |time_coverage_end|C||
 |time_coverage_duration|R||
 |time_coverage_resolution|C||
+|time_units|C| “units since YYYY-MM-DD hh:mm:ss” string valuem| 
 
 
 If the dataset has a geospatial coordinate variable, the following extra specifications are required/recommended:
+- A cooridinate variable's data type must be a numerical type (usually floating point)
 
 | Attribute | Requirement | Description | Example | 
 |:----------|:------------:|:------------|:--------|
